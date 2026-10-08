@@ -1,283 +1,71 @@
 {
-  "restaurant": {
-    "name": "Chickooz Fried",
-    "tagline": "Crispy. Juicy. Irresistible."
+ "shop": "Chickooz",
+ "cur": "",
+ "cats": [
+  {
+   "name": "Offers",
+   "items": [
+    {
+     "name": "Waffle 1+1",
+     "price": "100rs",
+     "desc": "Buy 1 get 1 free - ice cream & chocolate waffle"
+    }
+   ]
   },
-  "categories": [
+  {
+   "name": "Chicken",
+   "items": [
     {
-      "id": "fried-chicken",
-      "name": "Fried Chicken",
-      "items": [
-        {
-          "id": "classic-chicken-piece",
-          "name": "Classic Chicken Piece",
-          "description": "Crispy golden fried chicken",
-          "price": 99,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "spicy-chicken-piece",
-          "name": "Spicy Chicken Piece",
-          "description": "Hot and spicy crispy chicken",
-          "price": 109,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "chicken-leg",
-          "name": "Chicken Leg",
-          "description": "Juicy chicken leg with crispy coating",
-          "price": 129,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "chicken-wings-4",
-          "name": "Chicken Wings - 4 Pc",
-          "description": "Crispy and flavorful wings",
-          "price": 149,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "chicken-wings-8",
-          "name": "Chicken Wings - 8 Pc",
-          "description": "Double the crispy goodness",
-          "price": 269,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "chicken-strips-4",
-          "name": "Chicken Strips - 4 Pc",
-          "description": "Tender boneless chicken strips",
-          "price": 159,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "chicken-strips-6",
-          "name": "Chicken Strips - 6 Pc",
-          "description": "Perfect for sharing",
-          "price": 219,
-          "currency": "INR",
-          "vegetarian": false
-        }
-      ]
+     "name": "Crispy Fried Chicken (2 pc)",
+     "price": "200rs ",
+     "desc": "Golden, juicy, seasoned just right"
     },
     {
-      "id": "sides",
-      "name": "Sides",
-      "items": [
-        {
-          "id": "classic-fries",
-          "name": "Classic French Fries",
-          "price": 89,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "peri-peri-fries",
-          "name": "Peri Peri Fries",
-          "price": 109,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "cheesy-fries",
-          "name": "Cheesy Fries",
-          "price": 129,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "chicken-popcorn",
-          "name": "Chicken Popcorn",
-          "price": 149,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "coleslaw",
-          "name": "Coleslaw",
-          "price": 69,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "garlic-dip",
-          "name": "Garlic Dip",
-          "price": 39,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "spicy-mayo",
-          "name": "Spicy Mayo",
-          "price": 39,
-          "currency": "INR",
-          "vegetarian": true
-        }
-      ]
+     "name": "Crispy Fried Chicken (4 pc)",
+     "price": "400rs ",
+     "desc": ""
     },
     {
-      "id": "burgers",
-      "name": "Burgers",
-      "items": [
-        {
-          "id": "classic-burger",
-          "name": "Chickooz Classic Burger",
-          "description": "Crispy chicken, lettuce and signature sauce",
-          "price": 159,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "spicy-burger",
-          "name": "Chickooz Spicy Burger",
-          "description": "Spicy crispy chicken and hot sauce",
-          "price": 179,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "double-burger",
-          "name": "Double Chickooz Burger",
-          "description": "Double chicken, double flavor",
-          "price": 249,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "cheese-chicken-burger",
-          "name": "Cheese Chicken Burger",
-          "description": "Crispy chicken with melted cheese",
-          "price": 199,
-          "currency": "INR",
-          "vegetarian": false
-        }
-      ]
+     "name": "Spicy Wings (6 pc)",
+     "price": "700rs",
+     "desc": "With dipping sauce"
     },
     {
-      "id": "combos",
-      "name": "Combos",
-      "items": [
-        {
-          "id": "chickooz-solo",
-          "name": "Chickooz Solo",
-          "description": "2 Chicken Pieces, French Fries and Soft Drink",
-          "price": 199,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "burger-combo",
-          "name": "Chickooz Burger Combo",
-          "description": "Chicken Burger, French Fries and Soft Drink",
-          "price": 249,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "wings-combo",
-          "name": "Chickooz Wings Combo",
-          "description": "6 Chicken Wings, Peri Peri Fries, Dip and Soft Drink",
-          "price": 279,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "chickooz-feast",
-          "name": "Chickooz Feast",
-          "description": "4 Chicken Pieces, 4 Chicken Wings, French Fries, Coleslaw, 2 Dips and 2 Soft Drinks",
-          "price": 499,
-          "currency": "INR",
-          "vegetarian": false
-        }
-      ]
-    },
-    {
-      "id": "family-buckets",
-      "name": "Family Buckets",
-      "items": [
-        {
-          "id": "mini-bucket",
-          "name": "Mini Bucket",
-          "description": "6 Chicken Pieces, 1 Fries and 2 Dips",
-          "price": 399,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "family-bucket",
-          "name": "Family Bucket",
-          "description": "10 Chicken Pieces, 2 Fries, 1 Coleslaw and 4 Dips",
-          "price": 699,
-          "currency": "INR",
-          "vegetarian": false
-        },
-        {
-          "id": "mega-chickooz-bucket",
-          "name": "Mega Chickooz Bucket",
-          "description": "15 Chicken Pieces, 6 Chicken Wings, 3 Fries, 2 Coleslaw and 6 Dips",
-          "price": 999,
-          "currency": "INR",
-          "vegetarian": false
-        }
-      ]
-    },
-    {
-      "id": "drinks",
-      "name": "Drinks",
-      "items": [
-        {
-          "id": "soft-drink",
-          "name": "Soft Drink",
-          "price": 49,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "lemon-iced-tea",
-          "name": "Lemon Iced Tea",
-          "price": 69,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "fresh-lime",
-          "name": "Fresh Lime",
-          "price": 59,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "chocolate-shake",
-          "name": "Chocolate Shake",
-          "price": 129,
-          "currency": "INR",
-          "vegetarian": true
-        },
-        {
-          "id": "cold-coffee",
-          "name": "Cold Coffee",
-          "price": 129,
-          "currency": "INR",
-          "vegetarian": true
-        }
-      ]
+     "name": "Chicken Tenders",
+     "price": "200rs",
+     "desc": ""
     }
-  ],
-  "specials": [
+   ]
+  },
+  {
+   "name": "Burgers",
+   "items": [
     {
-      "id": "ultimate-chickooz-bucket",
-      "name": "Ultimate Chickooz Bucket",
-      "description": "8 Crispy Chicken Pieces, 6 Wings, Large Fries, 2 Dips and 2 Soft Drinks",
-      "price": 799,
-      "currency": "INR",
-      "vegetarian": false,
-      "featured": true
+     "name": "Chicken Burger",
+     "price": "600rs ",
+     "desc": "Crispy fillet, lettuce, mayo"
     }
-  ]
+   ]
+  },
+  {
+   "name": "Sides & Drinks",
+   "items": [
+    {
+     "name": "French Fries",
+     "price": "500rs",
+     "desc": ""
+    },
+    {
+     "name": "Coleslaw",
+     "price": "600",
+     "desc": ""
+    },
+    {
+     "name": "Soft Drink",
+     "price": "1.49",
+     "desc": ""
+    }
+   ]
+  }
+ ]
 }
