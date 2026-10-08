@@ -1,0 +1,71 @@
+{
+ "shop": "Chickooz",
+ "cur": "",
+ "cats": [
+  {
+   "name": "Offers",
+   "items": [
+    {
+     "name": "Waffle 1+1",
+     "price": "100rs",
+     "desc": "Buy 1 get 1 free - ice cream & chocolate waffle"
+    }
+   ]
+  },
+  {
+   "name": "Chicken",
+   "items": [
+    {
+     "name": "Crispy Fried Chicken (2 pc)",
+     "price": "200rs ",
+     "desc": "Golden, juicy, seasoned just right"
+    },
+    {
+     "name": "Crispy Fried Chicken (4 pc)",
+     "price": "400rs ",
+     "desc": ""
+    },
+    {
+     "name": "Spicy Wings (6 pc)",
+     "price": "700rs",
+     "desc": "With dipping sauce"
+    },
+    {
+     "name": "Chicken Tenders",
+     "price": "200rs",
+     "desc": ""
+    }
+   ]
+  },
+  {
+   "name": "Burgers",
+   "items": [
+    {
+     "name": "Chicken Burger",
+     "price": "600rs ",
+     "desc": "Crispy fillet, lettuce, mayo"
+    }
+   ]
+  },
+  {
+   "name": "Sides & Drinks",
+   "items": [
+    {
+     "name": "French Fries",
+     "price": "500rs",
+     "desc": ""
+    },
+    {
+     "name": "Coleslaw",
+     "price": "600",
+     "desc": ""
+    },
+    {
+     "name": "Soft Drink",
+     "price": "1.49",
+     "desc": ""
+    }
+   ]
+  }
+ ]
+}

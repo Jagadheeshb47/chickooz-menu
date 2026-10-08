@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chickooz Menu</title>
+<style>
+:root{--bg:#0b0b0b;--card:#171717;--ink:#fff7d6;--mut:#cdb86a;--acc:#ffc400;--line:#3d3300}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,sans-serif;line-height:1.4}
+main{max-width:640px;margin:0 auto;padding:20px 16px 48px}
+header{text-align:center;padding:12px 0 8px}
+h1{font:900 2.9rem/1 Impact,"Arial Black",sans-serif;margin:4px 0;color:var(--acc);letter-spacing:2px;text-transform:uppercase;text-shadow:3px 3px 0 #c1121f}
+header p{display:inline-block;margin:6px 0 0;background:#c1121f;color:#fff;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:4px 20px;font-size:.85rem;border-radius:4px}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:16px 0}
+h2{margin:0 0 10px;font-size:1.2rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc)}
+.it{margin:12px 0}.it p{margin:2px 0 0;color:var(--mut);font-size:.9rem}
+.row{display:flex;gap:8px;align-items:baseline}.row b{font-weight:600}
+.dots{flex:1;border-bottom:2px dotted var(--line)}
+.out{opacity:.5}.out em{color:var(--acc);font-size:.8rem}
+#app>p{text-align:center;color:var(--mut)}
+</style>
+</head>
+<body>
+<main>
+<header><h1 id="title">Chickooz</h1><p>Fried Chicken</p></header>
+<div id="app"><p>Loading menu...</p></div>
+</main>
+<script>
+var e=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+fetch('menu.json?t='+Date.now()).then(function(r){return r.json()}).then(function(d){
+ document.getElementById('title').textContent=d.shop;
+ document.title=d.shop+' Menu';
+ document.getElementById('app').innerHTML=d.cats.map(function(c){
+  return '<section><h2>'+e(c.name)+'</h2>'+c.items.map(function(i){
+   return '<div class="it'+(i.out?' out':'')+'"><div class="row"><b>'+e(i.name)+'</b><span class="dots"></span><span>'+(i.price!==''?e(d.cur)+e(i.price):'')+'</span></div>'+(i.desc?'<p>'+e(i.desc)+'</p>':'')+(i.out?'<em>Sold out today</em>':'')+'</div>';
+  }).join('')+'</section>';
+ }).join('');
+}).catch(function(){document.getElementById('app').innerHTML='<p>Menu not available right now. Please ask our staff.</p>';});
+</script>
+</body>
+</html>

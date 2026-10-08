@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Edit Menu</title>
+<style>
+:root{--bg:#0b0b0b;--card:#171717;--ink:#fff7d6;--mut:#cdb86a;--acc:#ffc400;--line:#3d3300}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,sans-serif;line-height:1.4}
+main{max-width:640px;margin:0 auto;padding:16px 16px 60px}
+h1{font:900 2rem/1 Impact,"Arial Black",sans-serif;color:var(--acc);letter-spacing:2px;text-transform:uppercase;margin:6px 0 10px}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:16px 0}
+h2{margin:0 0 10px;font-size:1.1rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc)}
+input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px;width:100%;box-sizing:border-box}
+input[type=checkbox]{width:auto}
+button{font:inherit;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:9px 16px;margin:4px 4px 0 0;cursor:pointer}
+button.p{background:var(--acc);color:#000;font-weight:700;border-color:var(--acc)}
+a{color:var(--acc)}
+.ed{display:grid;grid-template-columns:1fr 100px;gap:6px;padding:10px 0;border-top:1px solid var(--line)}
+.ed .w{grid-column:1/-1;display:flex;gap:12px;align-items:center;font-size:.9rem}
+.f{display:block;margin:8px 0;font-size:.85rem;color:var(--mut)}
+#bar{position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5}
+#msg{min-height:1.3em;color:var(--acc);font-size:.9rem}
+details{color:var(--mut);font-size:.9rem;margin-top:24px}
+</style>
+</head>
+<body>
+<main>
+<h1>Edit Menu</h1>
+<div id="bar"><button class="p" id="save">Save menu</button><a href="./">View menu</a><div id="msg"></div></div>
+<div id="app">Loading...</div>
+<details><summary>First time? Set up saving</summary>
+<ol>
+<li>On github.com tap your photo, then Settings, Developer settings, Personal access tokens, Fine-grained tokens, Generate new token.</li>
+<li>Name it "menu". Repository access: Only select repositories, choose your menu repo. Permissions: Repository permissions, Contents: Read and write.</li>
+<li>Tap Generate token and copy it. The first time you tap Save menu, paste it. It stays only on this phone. Never share it.</li>
+</ol></details>
+</main>
+<script>
+var $=function(s){return document.querySelector(s)};
+var owner=location.hostname.split('.')[0],repo=location.pathname.split('/')[1],state;
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+function msg(t){$('#msg').textContent=t}
+function render(){
+ var h='<label class="f">Shop name<input data-k="shop" value="'+esc(state.shop)+'"></label><label class="f">Currency symbol (leave empty if you type it in the price)<input data-k="cur" value="'+esc(state.cur)+'" style="width:100px"></label>';
+ state.cats.forEach(function(c,ci){
+  h+='<section><h2><input data-c="'+ci+'" data-k="name" value="'+esc(c.name)+'"></h2>';
+  c.items.forEach(function(it,ii){
+   h+='<div class="ed" data-c="'+ci+'" data-i="'+ii+'"><input data-f="name" value="'+esc(it.name)+'" placeholder="Item name"><input data-f="price" value="'+esc(it.price)+'" placeholder="Price"><input data-f="desc" value="'+esc(it.desc)+'" placeholder="Description (optional)" style="grid-column:1/-1"><div class="w"><label><input type="checkbox" data-f="out" '+(it.out?'checked':'')+'> Sold out</label><button data-act="del">Delete</button></div></div>';
+  });
+  h+='<button data-act="add" data-c="'+ci+'">+ Add item</button><button data-act="delcat" data-c="'+ci+'">Remove category</button></section>';
+ });
+ h+='<button data-act="addcat">+ Add category</button>';
+ $('#app').innerHTML=h;
+}
+$('#app').addEventListener('input',function(e){
+ var t=e.target,row=t.closest('[data-i]');
+ if(row&&t.dataset.f){state.cats[row.dataset.c].items[row.dataset.i][t.dataset.f]=t.type==='checkbox'?t.checked:t.value}
+ else if(t.dataset.k){if(t.dataset.c!==undefined)state.cats[t.dataset.c].name=t.value;else state[t.dataset.k]=t.value}
+});
+$('#app').addEventListener('click',function(e){
+ var b=e.target.closest('button[data-act]');if(!b)return;
+ var a=b.dataset.act,ci=b.dataset.c,row=b.closest('[data-i]');
+ if(a==='del')state.cats[row.dataset.c].items.splice(row.dataset.i,1);
+ if(a==='add')state.cats[ci].items.push({name:'',price:'',desc:''});
+ if(a==='delcat')state.cats.splice(ci,1);
+ if(a==='addcat')state.cats.push({name:'New category',items:[]});
+ render();
+});
+async function save(){
+ var t=localStorage.getItem('gh_token');
+ if(!t){t=prompt('Paste your GitHub token (only needed once):');if(!t)return;t=t.trim();}
+ var clean={shop:state.shop.trim(),cur:state.cur.trim(),cats:state.cats.map(function(c){
+  return {name:c.name.trim(),items:c.items.filter(function(i){return i.name.trim()}).map(function(i){
+   var o={name:i.name.trim(),price:String(i.price).trim(),desc:String(i.desc||'').trim()};if(i.out)o.out=true;return o;})};
+ })};
+ var api='https://api.github.com/repos/'+owner+'/'+repo+'/contents/menu.json';
+ var h={Authorization:'Bearer '+t,Accept:'application/vnd.github+json'};
+ msg('Saving...');
+ try{
+  var r=await fetch(api,{headers:h}),sha;
+  if(r.ok)sha=(await r.json()).sha;
+  else if(r.status===401||r.status===403){localStorage.removeItem('gh_token');throw new Error('token not accepted, try again')}
+  else if(r.status!==404)throw new Error('error '+r.status);
+  var body={message:'Update menu',content:btoa(unescape(encodeURIComponent(JSON.stringify(clean,null,1))))};
+  if(sha)body.sha=sha;
+  r=await fetch(api,{method:'PUT',headers:h,body:JSON.stringify(body)});
+  if(!r.ok){if(r.status===401||r.status===403||r.status===404)localStorage.removeItem('gh_token');throw new Error('error '+r.status+', check token permissions')}
+  localStorage.setItem('gh_token',t);
+  msg('Saved! Your menu updates in about 1 minute.');
+ }catch(err){msg('Could not save: '+err.message)}
+}
+$('#save').addEventListener('click',save);
+fetch('menu.json?t='+Date.now()).then(function(r){return r.json()}).then(function(j){state=j;render()}).catch(function(){$('#app').textContent='Could not load the menu. Open this page from your website address.'});
+</script>
+</body>
+</html>
