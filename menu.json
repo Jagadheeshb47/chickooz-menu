@@ -1,97 +1,101 @@
 {
- "shop": "Chickooz",
- "cur": "",
- "cats": [
-  {
-   "name": "Offers",
-   "items": [
+  "shop": "Chickooz",
+  "cur": "INR",
+  "cats": [
     {
-     "name": "Waffle 1+1",
-     "price": "100rs",
-     "desc": "Buy 1 get 1 free - ice cream & chocolate waffle"
+      "name": "Offers",
+      "items": [
+        {
+          "name": "Waffle 1+1",
+          "price": "100rs",
+          "desc": "Buy 1 get 1 free - ice cream & chocolate waffle"
+        }
+      ]
+    },
+    {
+      "name": "Chicken",
+      "items": [
+        {
+          "name": "Crispy Fried Chicken (2 pc)",
+          "price": "200rs",
+          "desc": "Golden, juicy, seasoned just right"
+        },
+        {
+          "name": "Crispy Fried Chicken (4 pc)",
+          "price": "400rs",
+          "desc": ""
+        },
+        {
+          "name": "Spicy Wings (6 pc)",
+          "price": "700rs",
+          "desc": "With dipping sauce"
+        },
+        {
+          "name": "Chicken Tenders",
+          "price": "200rs",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "Drink",
+      "items": [
+        {
+          "name": "Frozen Hell",
+          "price": "200rs",
+          "desc": "ice, juice, water"
+        }
+      ]
+    },
+    {
+      "name": "Sides & Drinks",
+      "items": [
+        {
+          "name": "Grill",
+          "price": "200rs",
+          "desc": ""
+        },
+        {
+          "name": "Shawarma",
+          "price": "140rs",
+          "desc": ""
+        },
+        {
+          "name": "Soft Drink",
+          "price": "140rs",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "Burgers",
+      "items": [
+        {
+          "name": "Chicken Burger",
+          "price": "600rs",
+          "desc": "Crispy fillet, lettuce, mayo"
+        }
+      ]
+    },
+    {
+      "name": "Sides & Drinks",
+      "items": [
+        {
+          "name": "French Fries Spice Hell",
+          "price": "500rs",
+          "desc": ""
+        },
+        {
+          "name": "Coleslaw Blue",
+          "price": "600rs",
+          "desc": ""
+        },
+        {
+          "name": "Soft Drink",
+          "price": "200rs",
+          "desc": ""
+        }
+      ]
     }
-   ]
-  },
-  {
-   "name": "Chicken",
-   "items": [
-    {
-     "name": "Crispy Fried Chicken (2 pc)",
-     "price": "200rs ",
-     "desc": "Golden, juicy, seasoned just right"
-    },
-    {
-     "name": "Crispy Fried Chicken (4 pc)",
-     "price": "400rs ",
-     "desc": ""
-    },
-    {
-     "name": "Spicy Wings (6 pc)",
-     "price": "700rs",
-     "desc": "With dipping sauce"
-    },
-    {
-     "name": "Chicken Tenders",
-     "price": "200rs",
-     "desc": ""
-    }
-   ]
-  },
-  {
-   "name": "drink",
-   "items": [
-    {
-     "name": " frozen hell ",
-     "price": "200rs ",
-     "desc": "ice, juice, water"
-    }
-   ]
-  },
-  {
-   "name": "Sides & Drinks",
-   "items": [
-    {
-     "name": "grill",
-     "price": "200rs",
-     "desc": ""
-    },
-    {
-     "name": "shawarma",
-     "price": "140",
-     "desc": ""
-    },
-    {
-     "name": "Soft Drink",
-     "price": "140",
-     "desc": ""
-       "name": "Burgers",
-   "items": [
-    {
-     "name": "Chicken Burger",
-     "price": "600rs ",
-     "desc": "Crispy fillet, lettuce, mayo"
-    }
-   ]
-  },
-  {
-   "name": "Sides & Drinks",
-   "items": [
-    {
-     "name": "French Fries spice hell",
-     "price": "500rs",
-     "desc": ""
-    },
-    {
-     "name": "Coleslaw blue",
-     "price": "600",
-     "desc": ""
-    },
-    {
-     "name": "Soft Drink",
-     "price": "200",
-     "desc": ""
-    }
-   ]
-  }
- ]
+  ]
 }
