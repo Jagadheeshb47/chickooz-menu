@@ -38,7 +38,33 @@
    ]
   },
   {
-   "name": "Burgers",
+   "name": "drink",
+   "items": [
+    {
+     "name": " frozen hell ",
+     "price": "200rs ",
+     "desc": "ice, juice, water"
+    }
+   ]
+  },
+  {
+   "name": "Sides & Drinks",
+   "items": [
+    {
+     "name": "grill",
+     "price": "200rs",
+     "desc": ""
+    },
+    {
+     "name": "shawarma",
+     "price": "140",
+     "desc": ""
+    },
+    {
+     "name": "Soft Drink",
+     "price": "140",
+     "desc": ""
+       "name": "Burgers",
    "items": [
     {
      "name": "Chicken Burger",
@@ -51,12 +77,12 @@
    "name": "Sides & Drinks",
    "items": [
     {
-     "name": "French Fries",
+     "name": "French Fries spice hell",
      "price": "500rs",
      "desc": ""
     },
     {
-     "name": "Coleslaw",
+     "name": "Coleslaw blue",
      "price": "600",
      "desc": ""
     },
